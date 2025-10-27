@@ -43,7 +43,7 @@ function getUserLocation(houses) {
 
         placeMarker(
           [latitude, longitude],
-          "Your Location",
+          "Your (Aproximate) Location",
           ""
         );
       },
