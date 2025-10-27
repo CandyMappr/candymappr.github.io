@@ -62,10 +62,19 @@ function getUserLocation(houses) {
   }
 }
 
-// Place a marker and bind popup
 function placeMarker(coords, address, candy) {
+
+  // Determine if king size exists
+  const isKing = candy.toLowerCase().includes("king");
+
+  const popupHTML = `
+    <span class="popup-title">${address}</span>
+    <div class="popup-candy">${candy}</div>
+    ${isKing ? '<div class="popup-king">KING SIZE!</div>' : ""}
+  `;
+
   L.marker(coords)
-    .bindPopup(`<b>${address}</b><br>${candy}`)
+    .bindPopup(popupHTML)
     .addTo(map);
 }
 
