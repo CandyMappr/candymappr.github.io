@@ -63,22 +63,29 @@ function getUserLocation(houses) {
   }
 }
 
-function placeMarker(coords, address, candy, isUser = false) {
-  // Determine if king size exists
+function placeMarker(coords, address, candy, isUser = false, outOfCandy = false) {
+
   const isKing = candy.toLowerCase().includes("king");
 
   const popupHTML = `
     <span class="popup-title">${address}</span>
     <div class="popup-candy">${candy}</div>
     ${isKing ? '<div class="popup-king">KING SIZE!</div>' : ""}
+    ${outOfCandy ? '<div class="popup-empty">OUT OF CANDY</div>' : ""}
   `;
 
   const marker = L.marker(coords).bindPopup(popupHTML);
 
+  // If house is out of candy, reduce marker opacity
+  if (outOfCandy) {
+    marker.setOpacity(0.45);
+  }
+
+  // User location stays independent & visible
   if (isUser) {
-    marker.addTo(map); // user stands out, not clustered
+    marker.addTo(map);
   } else {
-    clusterGroup.addLayer(marker); // ✅ clustered
+    clusterGroup.addLayer(marker);
   }
 }
 
