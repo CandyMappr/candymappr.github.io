@@ -30,7 +30,8 @@ function loadHouseData() {
 function processHouseData(houses) {
   houses.forEach(house => {
     if (house.coordinates !== "user") {
-      placeMarker(house.coordinates, house.address, house.candy);
+      placeMarker(house.coordinates, house.address, house.candy, false, house.outOfCandy);
+
     }
   });
 }
@@ -45,7 +46,8 @@ function getUserLocation(houses) {
 
         map.setView([latitude, longitude], 16);
 
-        placeMarker([latitude, longitude], "Your Location", "", true);
+        placeMarker([latitude, longitude], "Your Location", "", true, false);
+
 
       },
       error => {
