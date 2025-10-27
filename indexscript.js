@@ -2,6 +2,10 @@
 var map = L.map('map', { doubleClickZoom: false })
   .setView([37.5485768, -77.6659205], 16);
 
+// Group for clustering house markers
+var clusterGroup = L.markerClusterGroup();
+map.addLayer(clusterGroup);
+
 // Add OpenStreetMap layer
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
@@ -62,8 +66,7 @@ function getUserLocation(houses) {
   }
 }
 
-function placeMarker(coords, address, candy) {
-
+function placeMarker(coords, address, candy, isUser = false) {
   // Determine if king size exists
   const isKing = candy.toLowerCase().includes("king");
 
@@ -73,10 +76,15 @@ function placeMarker(coords, address, candy) {
     ${isKing ? '<div class="popup-king">KING SIZE!</div>' : ""}
   `;
 
-  L.marker(coords)
-    .bindPopup(popupHTML)
-    .addTo(map);
+  const marker = L.marker(coords).bindPopup(popupHTML);
+
+  if (isUser) {
+    marker.addTo(map); // user stands out, not clustered
+  } else {
+    clusterGroup.addLayer(marker); // ✅ clustered
+  }
 }
+
 
 // Start loading everything 🚀
 loadHouseData();
