@@ -1,4 +1,4 @@
-/* Popup Container */
+/* Smooth popup animation */
 .leaflet-popup-content-wrapper {
   background: #2b2b2b;
   color: #fff;
@@ -6,9 +6,15 @@
   border: 2px solid #ff8800;
   padding: 8px;
   font-family: "Trebuchet MS", sans-serif;
+  animation: fadeIn 0.35s ease-in-out;
 }
 
-/* Popup text */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Popup title */
 .popup-title {
   font-size: 18px;
   font-weight: bold;
@@ -18,9 +24,10 @@
   display: block;
 }
 
+/* Candy info area */
 .popup-candy {
   font-size: 14px;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .popup-candy span {
@@ -28,25 +35,53 @@
   color: #ff7700;
 }
 
-/* King size highlight */
+/* KING SIZE badge */
 .popup-king {
   background: #ffcc00;
   color: #000;
   padding: 3px 6px;
   font-weight: bold;
   border-radius: 6px;
-  margin-top: 6px;
+  margin-top: 8px;
   display: inline-block;
-  animation: pulse 1.4s infinite;
+  animation: pulse 1.2s infinite;
 }
 
 @keyframes pulse {
   0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
+  50% { transform: scale(1.18); }
   100% { transform: scale(1); }
 }
 
-/* Popup tip styling */
+/* Out of Candy ribbon */
+.popup-empty {
+  background: #b80000;
+  color: white;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 6px;
+  margin-top: 8px;
+  display: inline-block;
+  animation: shake 0.6s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-4deg); }
+}
+
+/* Cluster animation */
+.marker-cluster {
+  animation: clusterPop 0.3s ease-out;
+}
+
+@keyframes clusterPop {
+  0% { transform: scale(0.6); }
+  100% { transform: scale(1); }
+}
+
+/* Popup tip */
 .leaflet-popup-tip {
   background: #ff8800;
 }
+
