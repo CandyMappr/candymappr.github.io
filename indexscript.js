@@ -45,11 +45,8 @@ function getUserLocation(houses) {
 
         map.setView([latitude, longitude], 16);
 
-        placeMarker(
-          [latitude, longitude],
-          "Your (Aproximate) Location",
-          ""
-        );
+        placeMarker([latitude, longitude], "Your Location", "", true);
+
       },
       error => {
         console.warn("Geolocation unavailable — using fallback", error);
