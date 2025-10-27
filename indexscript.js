@@ -1,6 +1,9 @@
 // Initialize the map
-var map = L.map('map', { doubleClickZoom: false })
-  .setView([37.5485768, -77.6659205], 16);
+var map = L.map('map', {
+  doubleClickZoom: false,
+  maxZoom: 19
+}).locate({ setView: true, maxZoom: 16 });
+
 
 // Group for clustering house markers
 var clusterGroup = L.markerClusterGroup();
