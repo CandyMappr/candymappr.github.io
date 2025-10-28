@@ -29,10 +29,10 @@ function placeMarker(coords, address, candy, isUser = false, outOfCandy = false)
   const isKing = candy.toLowerCase().includes("king");
 
   const popupHTML = `
-    <span class="popup-title">\${address}</span>
-    <div class="popup-candy">\${candy}</div>
-    \${isKing ? '<div class="popup-king">KING SIZE!</div>' : ""}
-    \${outOfCandy ? '<div class="popup-empty">OUT OF CANDY</div>' : ""}
+    <span class="popup-title">${address}</span>
+    <div class="popup-candy">${candy}</div>
+    ${isKing ? '<div class="popup-king">KING SIZE!</div>' : ""}
+    ${outOfCandy ? '<div class="popup-empty">OUT OF CANDY</div>' : ""}
   `;
 
   const marker = L.marker(coords).bindPopup(popupHTML);
@@ -41,3 +41,4 @@ function placeMarker(coords, address, candy, isUser = false, outOfCandy = false)
   if (isUser) marker.addTo(map);
   else clusterGroup.addLayer(marker);
 }
+
