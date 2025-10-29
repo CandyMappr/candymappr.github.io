@@ -22,7 +22,7 @@
       "address": "14327",
       "coordinates": [37.5500778299265, -77.6704841194671],
       "candy": "Candy Amount: Handfull<br>Candy Size: Fun Size",
-      "outOfCandy": true
+      "outOfCandy": false
     }
   ]
 }
