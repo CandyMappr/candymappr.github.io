@@ -9,5 +9,5 @@
 
 ## Reporting a Vulnerability
 
-To report a vunerability, please create an issue at https://github.com/CandyMappr/candymappr.github.io/issues/new/choose.
+To report a vunerability, please create an issue at https://github.com/CandyMappr/candymappr.github.io/issues/new/choose and select "Bug Report".
 You should expect to see the issue addressed within a week.
