@@ -24,5 +24,23 @@
       "candy": "Candy Amount: Handfull<br>Candy Size: Fun Size",
       "outOfCandy": false
     }
+    {
+      "address": "3324",
+      "coordinates": [37.5477505880364, -77.6356576752699],
+      "candy": "Candy Amount: Spin a Wheel<br>Candy Size: Fun Size",
+      "outOfCandy": false
+    }
+    {
+      "address": "14131",
+      "coordinates": [37.5566633066804, -77.6528995144832],
+      "candy": "Candy Amount: Take 2<br>Candy Size: Fun Size",
+      "outOfCandy": false
+    }
+    {
+      "address": "3319",
+      "coordinates": [37.54714680913, -77.6354462987074],
+      "candy": "Candy Amount: Take 1<br>Candy Size: King Size",
+      "outOfCandy": false
+    }
   ]
 }
